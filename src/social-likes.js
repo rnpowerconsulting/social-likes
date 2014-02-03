@@ -384,10 +384,12 @@ Button.prototype = {
 		}
 
 		// Button
+		var buttonContent = $('<span>', { 'text': widget.text(), 'class' : this.getElementClassNames('button-text')});
+		
 		var button = $(isLink ? '<a>' : '<span>', {
-			'class': this.getElementClassNames('button'),
-			'text': widget.text()
-		});
+			'class': this.getElementClassNames('button')
+		}).append(buttonContent);
+		
 		if (isLink) {
 			var url = makeUrl(options.clickUrl, {
 				url: options.pageUrl,
